@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Residencia Fiscal en Paraguay | Consultora KOBS</title>
+  <meta name="description" content="Obtene tu residencia fiscal en Paraguay de forma legal. 0% impuesto sobre ingresos del exterior. 8 anos de experiencia con clientes de toda Europa y America Latina.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+
+/* ════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════ */
+:root {
+  --void:       #030D18;
+  --deep:       #071A2D;
+  --panel:      #0D2540;
+  --teal:       #00CEB8;
+  --teal-dim:   rgba(0,206,184,.10);
+  --teal-glow:  rgba(0,206,184,.22);
+  --teal-mid:   rgba(0,206,184,.55);
+  --amber:      #E8A835;
+  --amber-dim:  rgba(232,168,53,.12);
+  --orange:     #F47A1F;
+  --orange-d:   #D4660E;
+  --snow:       #EDF2F7;
+  --body-col:   rgba(237,242,247,.78);
+  --muted-col:  rgba(237,242,247,.40);
+  --line:       rgba(237,242,247,.07);
+  --line-light: rgba(0,0,0,.07);
+  --serif:      'Cormorant Garamond', Georgia, serif;
+  --sans:       'Syne', sans-serif;
+  --body:       'DM Sans', sans-serif;
+}
+
+/* ════════════════════════════════════════
+   RESET + BASE
+════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--body-col);
+  background: var(--void);
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9998;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  opacity: .032;
+  mix-blend-mode: overlay;
+}
+
+/* ════════════════════════════════════════
+   CUSTOM CURSOR
+════════════════════════════════════════ */
+.cur-dot {
+  position: fixed; z-index: 9999; pointer-events: none;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal);
+  transform: translate(-50%,-50%);
+  transition: opacity .2s;
+  top: 0; left: 0;
+}
+.cur-ring {
+  position: fixed; z-index: 9997; pointer-events: none;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid var(--teal-mid);
+  transform: translate(-50%,-50%);
+  transition: width .2s, height .2s, border-color .2s, opacity .2s;
+  top: 0; left: 0;
+}
+body:hover .cur-dot { opacity: 1; }
+a:hover ~ .cur-ring,
+button:hover ~ .cur-ring { width: 46px; height: 46px; border-color: var(--teal); }
+
+/* ════════════════════════════════════════
+   UTILITIES
+════════════════════════════════════════ */
+.wrap  { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+.wrap-sm { max-width: 840px; margin: 0 auto; padding: 0 28px; }
+
+.lbl {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-weight: 600;
+  font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 18px;
+}
+.lbl::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--teal); flex-shrink: 0;
+}
+
+.lbl-light { color: var(--panel); }
+.lbl-light::before { background: var(--panel); }
+
+h2 {
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 52px);
+  line-height: 1.08; letter-spacing: -.025em;
+  color: var(--snow);
+}
+h2.on-light { color: #0D1C2E; }
+h3 { font-family: var(--sans); font-weight: 700; font-size: 20px; color: var(--snow); }
+h3.on-light { color: #0D1C2E; }
+
+/* Scroll reveal */
+.rv { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+.rv.on { opacity: 1; transform: none; }
+.d1 { transition-delay: .10s; }
+.d2 { transition-delay: .20s; }
+.d3 { transition-delay: .30s; }
+.d4 { transition-delay: .40s; }
+.d5 { transition-delay: .50s; }
+
+/* ════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-weight: 700; font-size: 14px;
+  letter-spacing: .04em; text-transform: uppercase;
+  padding: 16px 34px; border-radius: 4px;
+  border: 1.5px solid transparent; cursor: none;
+  transition: background .22s, color .22s, border-color .22s, transform .15s, box-shadow .22s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-orange {
+  background: var(--orange); color: #fff; border-color: var(--orange);
+}
+.btn-orange:hover { background: var(--orange-d); border-color: var(--orange-d); box-shadow: 0 8px 28px rgba(244,122,31,.30); }
+.btn-teal {
+  background: transparent; color: var(--teal); border-color: var(--teal);
+}
+.btn-teal:hover { background: var(--teal); color: var(--void); box-shadow: 0 8px 28px var(--teal-glow); }
+.btn-block { width: 100%; justify-content: center; }
+.btn-lg { padding: 18px 40px; font-size: 15px; }
+.btn-wa {
+  background: #25D366; color: #fff; border-color: #25D366;
+  font-size: 15px; padding: 18px 32px;
+}
+.btn-wa:hover { background: #1EBF5A; border-color: #1EBF5A; box-shadow: 0 8px 28px rgba(37,211,102,.30); }
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  height: 72px;
+  background: rgba(3,13,24,.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  transition: background .3s, box-shadow .3s;
+}
+.nav.scrolled { background: rgba(3,13,24,.97); box-shadow: 0 4px 32px rgba(0,0,0,.4); }
+.nav-inner {
+  height: 100%; max-width: 1160px; margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo-mark {
+  width: 40px; height: 40px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--teal) 0%, #008F80 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 16px; color: var(--void);
+  letter-spacing: -.03em;
+}
+.nav-logo-words { display: flex; flex-direction: column; line-height: 1.1; }
+.nav-logo-name { font-family: var(--sans); font-weight: 700; font-size: 14px; color: var(--snow); letter-spacing: -.01em; }
+.nav-logo-sub  { font-size: 10px; font-weight: 400; color: var(--muted-col); letter-spacing: .05em; text-transform: uppercase; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-link { font-family: var(--sans); font-weight: 600; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-col); transition: color .2s; }
+.nav-link:hover { color: var(--teal); }
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+.hero {
+  position: relative; min-height: 100dvh;
+  background: var(--void);
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden; padding-top: 72px;
+}
+
+/* Animated mesh blobs */
+.hero-mesh { position: absolute; inset: 0; pointer-events: none; }
+.mesh-blob {
+  position: absolute; border-radius: 50%;
+  filter: blur(90px);
+}
+.mesh-1 {
+  width: 700px; height: 700px;
+  top: -15%; left: -10%;
+  background: radial-gradient(circle, rgba(0,206,184,.20) 0%, transparent 65%);
+  animation: mbob1 11s ease-in-out infinite;
+}
+.mesh-2 {
+  width: 500px; height: 500px;
+  bottom: 5%; right: -5%;
+  background: radial-gradient(circle, rgba(232,168,53,.15) 0%, transparent 65%);
+  animation: mbob2 14s ease-in-out infinite;
+}
+.mesh-3 {
+  width: 400px; height: 400px;
+  top: 40%; left: 35%;
+  background: radial-gradient(circle, rgba(0,206,184,.08) 0%, transparent 70%);
+  animation: mbob3 9s ease-in-out infinite;
+}
+@keyframes mbob1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-50px) scale(1.12); } }
+@keyframes mbob2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,40px) scale(0.88); } }
+@keyframes mbob3 { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(-30px,30px) scale(1.06); } 66% { transform: translate(40px,-20px) scale(0.94); } }
+
+/* Giant "0%" watermark */
+.hero-zero {
+  position: absolute; pointer-events: none;
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(220px, 36vw, 580px);
+  line-height: .85;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,206,184,.10);
+  right: -3%; top: 50%; transform: translateY(-50%);
+  z-index: 0; user-select: none;
+  letter-spacing: -.04em;
+}
+
+/* Decorative dashed frame */
+.hero-frame {
+  position: absolute; inset: 90px 20px 20px;
+  border: 1px dashed rgba(0,206,184,.07);
+  pointer-events: none; z-index: 0; border-radius: 2px;
+}
+
+/* Hero content */
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1160px; margin: 0 auto; padding: 80px 28px 60px;
+  width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-weight: 600;
+  font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid rgba(0,206,184,.25);
+  padding: 7px 14px; border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+
+.hero-h1 {
+  font-family: var(--sans); font-weight: 800;
+  font-size: clamp(48px, 7.5vw, 96px);
+  line-height: .96; letter-spacing: -.035em;
+  color: var(--snow);
+  max-width: 780px; margin-bottom: 28px;
+}
+.hero-h1 em {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 1.08em; letter-spacing: -.02em;
+  color: var(--teal); display: block;
+}
+
+.hero-desc {
+  font-size: 17px; line-height: 1.78;
+  color: var(--body-col);
+  max-width: 520px; margin-bottom: 44px;
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+
+.hero-trust {
+  display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+}
+.trust-item {
+  font-family: var(--sans); font-weight: 600;
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted-col);
+  display: flex; align-items: center; gap: 7px;
+}
+.trust-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--line); }
+.trust-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink:0; opacity:.7; }
+
+/* ════════════════════════════════════════
+   MARQUEE
+════════════════════════════════════════ */
+.marquee-band {
+  background: var(--teal); padding: 13px 0; overflow: hidden;
+  position: relative; z-index: 2;
+}
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-item {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--void); padding: 0 32px;
+  display: flex; align-items: center; gap: 32px;
+  white-space: nowrap;
+}
+.marquee-item::after { content: '·'; color: rgba(3,13,24,.4); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ════════════════════════════════════════
+   STATS
+════════════════════════════════════════ */
+.stats-sec { background: var(--deep); padding: 80px 0; border-bottom: 1px solid var(--line); }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--line);
+}
+.stat-block {
+  background: var(--deep); padding: 48px 32px;
+  position: relative; overflow: hidden;
+  transition: background .3s;
+}
+.stat-block:hover { background: rgba(0,206,184,.04); }
+.stat-block::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--teal); transform: scaleX(0); transform-origin: left;
+  transition: transform .4s cubic-bezier(.22,1,.36,1);
+}
+.stat-block:hover::after { transform: scaleX(1); }
+.stat-num {
+  font-family: var(--serif); font-weight: 300; font-style: italic;
+  font-size: clamp(52px, 6vw, 76px); line-height: 1;
+  color: var(--teal); margin-bottom: 10px; letter-spacing: -.02em;
+}
+.stat-label {
+  font-family: var(--sans); font-weight: 600;
+  font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--muted-col);
+}
+
+/* ════════════════════════════════════════
+   WHY PARAGUAY (light)
+════════════════════════════════════════ */
+.why { background: #F5F8FC; padding: 110px 0; }
+.sec-header { margin-bottom: 64px; }
+.sec-header p { font-size: 17px; color: #5A6B7E; max-width: 520px; margin-top: 14px; line-height: 1.78; }
+
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,.06); border: 2px solid rgba(0,0,0,.06); }
+.why-card {
+  background: #fff; padding: 40px 36px;
+  position: relative; overflow: hidden;
+  transition: box-shadow .3s;
+}
+.why-card:hover { box-shadow: inset 0 0 0 2px var(--teal); z-index: 1; }
+.why-card-num {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 52px; color: rgba(0,206,184,.12); line-height: 1;
+  margin-bottom: 16px; letter-spacing: -.03em;
+}
+.why-card h4 {
+  font-family: var(--sans); font-weight: 700; font-size: 15.5px;
+  color: #0D1C2E; margin-bottom: 10px; letter-spacing: -.01em;
+}
+.why-card p { font-size: 14px; line-height: 1.78; color: #5A6B7E; }
+.why-card-accent {
+  position: absolute; top: 0; left: 0; width: 3px; height: 0;
+  background: var(--teal);
+  transition: height .4s cubic-bezier(.22,1,.36,1);
+}
+.why-card:hover .why-card-accent { height: 100%; }
+
+/* ════════════════════════════════════════
+   PROCESS (dark)
+════════════════════════════════════════ */
+.process { background: var(--void); padding: 110px 0; }
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--line); border: 1px solid var(--line); }
+.p-step {
+  background: var(--deep); padding: 48px 32px;
+  position: relative; overflow: hidden;
+  transition: background .3s;
+}
+.p-step:hover { background: rgba(0,206,184,.05); }
+.p-step.active { background: rgba(0,206,184,.07); }
+.p-step-num {
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 64px; line-height: .9;
+  color: transparent; -webkit-text-stroke: 1px var(--teal);
+  margin-bottom: 28px; letter-spacing: -.02em;
+  opacity: .6;
+}
+.p-step.active .p-step-num { opacity: 1; }
+.p-step h4 {
+  font-family: var(--sans); font-weight: 700; font-size: 15px;
+  color: var(--snow); margin-bottom: 12px; letter-spacing: -.01em;
+}
+.p-step p { font-size: 13.5px; line-height: 1.75; color: var(--muted-col); }
+
+/* ════════════════════════════════════════
+   SERVICES (light)
+════════════════════════════════════════ */
+.services { background: #fff; padding: 110px 0; }
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.srv-list { display: flex; flex-direction: column; }
+.srv-row {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 22px 0; border-bottom: 1px solid rgba(0,0,0,.07);
+  transition: background .2s;
+  cursor: default;
+}
+.srv-list .srv-row:first-child { border-top: 1px solid rgba(0,0,0,.07); }
+.srv-row:hover { padding-left: 8px; }
+.srv-row-num {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 22px; color: var(--teal); line-height: 1.2;
+  flex-shrink: 0; width: 28px;
+}
+.srv-row-body h4 { font-family: var(--sans); font-weight: 700; font-size: 15px; color: #0D1C2E; margin-bottom: 3px; }
+.srv-row-body p  { font-size: 13.5px; color: #5A6B7E; line-height: 1.65; }
+
+/* Included card (right) */
+.inc-card {
+  background: var(--void); border-radius: 6px;
+  padding: 48px 42px;
+  border: 1px solid rgba(0,206,184,.15);
+  box-shadow: 0 0 80px rgba(0,206,184,.06);
+}
+.inc-card .lbl { color: var(--teal); }
+.inc-card h3 { color: var(--snow); margin-bottom: 8px; font-size: 22px; }
+.inc-card .inc-sub { font-size: 14px; color: var(--muted-col); margin-bottom: 32px; }
+.inc-items { display: flex; flex-direction: column; gap: 13px; margin-bottom: 36px; }
+.inc-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14.5px; color: rgba(237,242,247,.85); font-weight: 400;
+}
+.inc-check {
+  width: 18px; height: 18px; flex-shrink: 0;
+  border-radius: 50%; background: rgba(0,206,184,.15);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 3px;
+}
+.inc-check svg { width: 9px; height: 9px; }
+.inc-price {
+  background: rgba(0,206,184,.07); border: 1px solid rgba(0,206,184,.15);
+  border-radius: 4px; padding: 16px 18px;
+  font-size: 13px; color: var(--muted-col); line-height: 1.65;
+}
+.inc-price strong { color: var(--teal); }
+
+/* ════════════════════════════════════════
+   COUNTRIES (dark)
+════════════════════════════════════════ */
+.countries { background: var(--deep); padding: 90px 0; text-align: center; }
+.countries h2 { margin-bottom: 14px; }
+.countries-desc { font-size: 17px; color: var(--muted-col); max-width: 500px; margin: 0 auto 48px; }
+.flags-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 48px; }
+.flag-chip {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  background: rgba(255,255,255,.03);
+  font-family: var(--sans); font-weight: 600;
+  font-size: 13px; color: var(--body-col);
+  transition: border-color .2s, background .2s, transform .15s;
+}
+.flag-chip:hover { border-color: rgba(0,206,184,.4); background: var(--teal-dim); transform: translateY(-2px); }
+.flag-chip span { font-size: 18px; }
+
+/* ════════════════════════════════════════
+   ABOUT SUSANA (light)
+════════════════════════════════════════ */
+.about { background: #F5F8FC; padding: 110px 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+.about-visual-card {
+  background: var(--void); border-radius: 6px;
+  padding: 52px 44px; border: 1px solid var(--line);
+  position: relative; overflow: hidden;
+}
+.about-visual-card::before {
+  content: 'SK';
+  position: absolute; bottom: -30px; right: -20px;
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 160px; color: transparent;
+  -webkit-text-stroke: 1px rgba(0,206,184,.08);
+  line-height: 1; pointer-events: none;
+}
+.about-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, #008F80 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 24px;
+  color: var(--void); margin-bottom: 20px;
+  box-shadow: 0 0 0 4px rgba(0,206,184,.15);
+}
+.about-name { font-family: var(--sans); font-weight: 800; font-size: 22px; color: var(--snow); margin-bottom: 4px; }
+.about-role { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+.about-bio  { font-size: 14px; color: var(--muted-col); line-height: 1.78; margin-bottom: 28px; }
+
+.about-mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mini-stat {
+  background: rgba(255,255,255,.04); border: 1px solid var(--line);
+  border-radius: 4px; padding: 16px;
+  text-align: center;
+}
+.mini-stat-n { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 28px; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+.mini-stat-l { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-col); }
+
+.about-text .lbl { color: var(--panel); }
+.about-text .lbl::before { background: var(--panel); }
+.about-text h2.on-light { margin-bottom: 24px; }
+.about-text p { font-size: 15.5px; color: #445566; line-height: 1.85; margin-bottom: 18px; }
+.cred-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.cred {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; background: #fff;
+  border: 1px solid rgba(0,0,0,.07); border-radius: 4px;
+  font-size: 13.5px; color: #334455; font-weight: 500;
+}
+.cred-icon { font-size: 17px; flex-shrink: 0; }
+
+/* ════════════════════════════════════════
+   FAQ (dark)
+════════════════════════════════════════ */
+.faq { background: var(--void); padding: 110px 0; }
+.faq-items { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.faq-item { background: var(--deep); overflow: hidden; }
+.faq-q-btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding: 24px 32px;
+  font-family: var(--sans); font-weight: 700; font-size: 15px;
+  color: var(--snow); background: none; border: none; cursor: none;
+  text-align: left; transition: color .2s, background .2s;
+}
+.faq-q-btn:hover { color: var(--teal); background: rgba(0,206,184,.04); }
+.faq-item.open .faq-q-btn { color: var(--teal); background: rgba(0,206,184,.05); }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid var(--line); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted-col); font-size: 18px; line-height: 1;
+  transition: border-color .25s, color .25s, transform .3s, background .25s;
+}
+.faq-item.open .faq-icon { border-color: var(--teal); color: var(--teal); background: var(--teal-dim); transform: rotate(45deg); }
+.faq-a {
+  max-height: 0; overflow: hidden; padding: 0 32px;
+  font-size: 14.5px; line-height: 1.82; color: var(--muted-col);
+  transition: max-height .4s ease, padding .4s ease;
+}
+.faq-item.open .faq-a { max-height: 400px; padding-bottom: 28px; }
+
+/* ════════════════════════════════════════
+   CONTACT (dark)
+════════════════════════════════════════ */
+.contact { background: var(--void); padding: 110px 0; border-top: 1px solid var(--line); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.contact-left h2 { margin-bottom: 18px; }
+.contact-left .contact-desc { font-size: 16px; color: var(--muted-col); line-height: 1.82; margin-bottom: 40px; }
+.contact-meta { display: flex; flex-direction: column; gap: 16px; }
+.contact-meta-row {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 14.5px; color: var(--body-col);
+}
+.contact-meta-ico {
+  width: 38px; height: 38px; border-radius: 4px;
+  background: var(--teal-dim); border: 1px solid rgba(0,206,184,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0; color: var(--teal);
+}
+.contact-meta-row strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-col); margin-bottom: 1px; }
+
+/* Form card */
+.contact-form-card {
+  background: var(--deep); border: 1px solid var(--line); border-radius: 6px;
+  padding: 44px 40px;
+}
+.contact-form-card h3 { font-size: 18px; margin-bottom: 28px; color: var(--snow); }
+.wa-direct {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(37,211,102,.10); border: 1px solid rgba(37,211,102,.25);
+  border-radius: 4px; padding: 18px 22px;
+  text-decoration: none; margin-bottom: 16px;
+  transition: background .25s, border-color .25s, transform .15s;
+}
+.wa-direct:hover { background: rgba(37,211,102,.16); border-color: rgba(37,211,102,.45); transform: translateY(-2px); }
+.wa-ico { font-size: 28px; flex-shrink: 0; }
+.wa-words strong { display: block; font-family: var(--sans); font-weight: 700; font-size: 15px; color: #3DDD7A; }
+.wa-words span  { font-size: 12.5px; color: var(--muted-col); }
+
+.or-row {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+  font-family: var(--sans); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--muted-col);
+}
+.or-row::before, .or-row::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+.fg { margin-bottom: 14px; }
+.fg label {
+  display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted-col); margin-bottom: 7px;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%; padding: 13px 16px;
+  background: rgba(255,255,255,.04); border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--body); font-size: 14.5px; color: var(--snow);
+  outline: none; transition: border-color .2s, background .2s;
+  appearance: none;
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--muted-col); }
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: rgba(0,206,184,.45); background: rgba(0,206,184,.04);
+}
+.fg textarea { resize: vertical; min-height: 88px; }
+.fg select {
+  color: var(--muted-col); cursor: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23EDF2F7' stroke-width='1.5' fill='none' stroke-opacity='.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+  padding-right: 40px; background-color: rgba(255,255,255,.04);
+}
+.fg select option { background: var(--deep); color: var(--snow); }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-note { font-size: 12px; color: var(--muted-col); text-align: center; margin-top: 12px; }
+
+/* ════════════════════════════════════════
+   CTA BAND
+════════════════════════════════════════ */
+.cta-band {
+  background: linear-gradient(105deg, var(--teal) 0%, #008F80 100%);
+  padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: 'PARAGUAY';
+  position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: 160px; color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0,0,0,.08);
+  white-space: nowrap; pointer-events: none; letter-spacing: .1em;
+}
+.cta-band .lbl { color: rgba(0,0,0,.5); }
+.cta-band .lbl::before { background: rgba(0,0,0,.4); }
+.cta-band h2 { color: var(--void); font-size: clamp(28px, 4vw, 46px); margin-bottom: 14px; }
+.cta-band p { font-size: 17px; color: rgba(3,13,24,.7); max-width: 480px; margin: 0 auto 40px; }
+.cta-band .btn-orange { background: var(--void); color: var(--snow); border-color: var(--void); }
+.cta-band .btn-orange:hover { background: #0a1e35; border-color: #0a1e35; }
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer {
+  background: #010912;
+  border-top: 1px solid var(--line);
+  padding: 48px 0 28px;
+}
+.foot-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 40px; margin-bottom: 36px; flex-wrap: wrap;
+}
+.foot-brand { max-width: 280px; }
+.foot-logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.foot-mark {
+  width: 36px; height: 36px; border-radius: 5px;
+  background: linear-gradient(135deg, var(--teal) 0%, #008F80 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 14px; color: var(--void);
+}
+.foot-brand-name { font-family: var(--sans); font-weight: 700; font-size: 14px; color: rgba(237,242,247,.75); }
+.foot-brand p { font-size: 13px; color: rgba(237,242,247,.32); line-height: 1.75; }
+
+.foot-col h5 {
+  font-family: var(--sans); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(237,242,247,.35); margin-bottom: 14px;
+}
+.foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.foot-col ul li { font-size: 13.5px; color: rgba(237,242,247,.38); }
+.foot-col ul li a { transition: color .2s; }
+.foot-col ul li a:hover { color: var(--teal); }
+
+.foot-bot {
+  border-top: 1px solid rgba(237,242,247,.05);
+  padding-top: 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.foot-copy { font-size: 12px; color: rgba(237,242,247,.22); }
+.foot-social { display: flex; gap: 10px; }
+.foot-social a {
+  width: 30px; height: 30px; border-radius: 4px;
+  background: rgba(255,255,255,.05); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-family: var(--sans); font-weight: 700;
+  color: rgba(237,242,247,.38); transition: background .2s, color .2s, border-color .2s;
+}
+.foot-social a:hover { background: var(--teal); color: var(--void); border-color: var(--teal); }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: 1fr; gap: 52px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 52px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .hero-h1 { font-size: clamp(40px, 11vw, 68px); }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { justify-content: center; }
+  .hero-zero { font-size: 55vw; right: -8%; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .foot-top { flex-direction: column; gap: 28px; }
+  .foot-bot { flex-direction: column; align-items: flex-start; }
+  .nav-link { display: none; }
+  .stat-block { padding: 36px 24px; }
+  .cta-band { padding: 60px 0; }
+  .cta-band::before { font-size: 80px; }
+  .flags-row { gap: 8px; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-mini-stats { grid-template-columns: 1fr 1fr; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur-dot" id="curDot"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">K</div>
+      <div class="nav-logo-words">
+        <span class="nav-logo-name">Consultora KOBS</span>
+        <span class="nav-logo-sub">Residencias &amp; Cedulas PY</span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a href="#proceso" class="nav-link">Proceso</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#contacto" class="btn btn-teal" style="padding:11px 22px;font-size:12px;">Consulta gratuita</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-mesh">
+    <div class="mesh-blob mesh-1"></div>
+    <div class="mesh-blob mesh-2"></div>
+    <div class="mesh-blob mesh-3"></div>
+  </div>
+  <div class="hero-frame"></div>
+  <div class="hero-zero">0%</div>
+
+  <div class="hero-content">
+    <div class="hero-badge rv">
+      <span class="hero-badge-dot"></span>
+      Asuncion, Paraguay &mdash; Servicio activo
+    </div>
+    <h1 class="hero-h1 rv d1">
+      Residencia fiscal
+      <em>en Paraguay.</em>
+    </h1>
+    <p class="hero-desc rv d2">
+      Accede a uno de los sistemas fiscales mas ventajosos del mundo. En Paraguay, los ingresos generados en el exterior no tributan. Nuestro equipo local te guia en cada paso, sin burocracia.
+    </p>
+    <div class="hero-ctas rv d3">
+      <a href="https://wa.link/6mp12l" target="_blank" class="btn btn-orange btn-lg">Quiero mi consulta gratuita &rarr;</a>
+      <a href="#proceso" class="btn btn-teal btn-lg">Ver el proceso</a>
+    </div>
+    <div class="hero-trust rv d4">
+      <span class="trust-item">8 anos de experiencia</span>
+      <span class="trust-sep"></span>
+      <span class="trust-item">Equipo local en Asuncion</span>
+      <span class="trust-sep"></span>
+      <span class="trust-item">+7 nacionalidades</span>
+      <span class="trust-sep"></span>
+      <span class="trust-item">100% legal</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item">Sistema territorial 100%</div>
+    <div class="marquee-item">Espana</div>
+    <div class="marquee-item">Argentina</div>
+    <div class="marquee-item">Uruguay</div>
+    <div class="marquee-item">Italia</div>
+    <div class="marquee-item">0% sobre ingresos del exterior</div>
+    <div class="marquee-item">Mexico</div>
+    <div class="marquee-item">Alemania</div>
+    <div class="marquee-item">Bolivia</div>
+    <div class="marquee-item">Chile</div>
+    <div class="marquee-item">Cedula en ~45 dias</div>
+    <div class="marquee-item">Sin minimo de dias de estadia</div>
+    <div class="marquee-item">Espana</div>
+    <div class="marquee-item">Argentina</div>
+    <div class="marquee-item">Uruguay</div>
+    <div class="marquee-item">Italia</div>
+    <div class="marquee-item">0% sobre ingresos del exterior</div>
+    <div class="marquee-item">Mexico</div>
+    <div class="marquee-item">Alemania</div>
+    <div class="marquee-item">Bolivia</div>
+    <div class="marquee-item">Chile</div>
+    <div class="marquee-item">Cedula en ~45 dias</div>
+    <div class="marquee-item">Sin minimo de dias de estadia</div>
+  </div>
+</div>
+
+<!-- ══════════ STATS ══════════ -->
+<section class="stats-sec">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-block rv">
+        <div class="stat-num" data-count="8" data-suffix="+">8+</div>
+        <div class="stat-label">Anos de experiencia</div>
+      </div>
+      <div class="stat-block rv d1">
+        <div class="stat-num" data-count="100" data-prefix="+">+100</div>
+        <div class="stat-label">Clientes acompanados</div>
+      </div>
+      <div class="stat-block rv d2">
+        <div class="stat-num" data-count="7" data-suffix="+">7+</div>
+        <div class="stat-label">Paises de origen</div>
+      </div>
+      <div class="stat-block rv d3">
+        <div class="stat-num" data-count="0" data-suffix="%">0%</div>
+        <div class="stat-label">Impuesto sobre ingresos del exterior</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY PARAGUAY ══════════ -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-header rv">
+      <span class="lbl lbl-light">Por que Paraguay</span>
+      <h2 class="on-light">La residencia fiscal<br>mas flexible del mundo</h2>
+      <p>Paraguay ofrece ventajas que no existen en ningun otro destino fiscal. Sin complicaciones y con total legalidad.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv d1">
+        <div class="why-card-accent"></div>
+        <div class="why-card-num">01</div>
+        <h4>0% impuesto sobre ingresos del exterior</h4>
+        <p>El sistema tributario paraguayo es 100% territorial. Los ingresos generados fuera del pais no estan alcanzados por el impuesto a la renta personal.</p>
+      </div>
+      <div class="why-card rv d2">
+        <div class="why-card-accent"></div>
+        <div class="why-card-num">02</div>
+        <h4>Sin requisito de dias minimos de estadia</h4>
+        <p>No necesitas vivir en Paraguay para mantener tu residencia fiscal. Podras estar el tiempo que desees, sin obligaciones de permanencia.</p>
+      </div>
+      <div class="why-card rv d3">
+        <div class="why-card-accent"></div>
+        <div class="why-card-num">03</div>
+        <h4>Cedula paraguaya en aproximadamente 45 dias</h4>
+        <p>Desde octubre de 2024, el proceso de biometria entrega la cedula-chip en poco mas de 45 dias. Uno de los mas agiles de la region.</p>
+      </div>
+      <div class="why-card rv d1">
+        <div class="why-card-accent"></div>
+        <div class="why-card-num">04</div>
+        <h4>No perdes tu ciudadania actual</h4>
+        <p>Tramitar la residencia fiscal en Paraguay no implica renunciar a tu pasaporte ni a tu ciudadania de origen. Mantenes ambas en paralelo.</p>
+      </div>
+      <div class="why-card rv d2">
+        <div class="why-card-accent"></div>
+        <div class="why-card-num">05</div>
+        <h4>Proceso accesible desde tu pais</h4>
+        <p>La mayor parte de la documentacion se prepara desde donde estas. Solo necesitas viajar una vez para completar la biometria y retirar tu cedula.</p>
+      </div>
+      <div class="why-card rv d3">
+        <div class="why-card-accent"></div>
+        <div class="why-card-num">06</div>
+        <h4>Estructura para tu negocio o inversiones</h4>
+        <p>Ademas de la residencia, podes abrir una sociedad en Paraguay para operar, facturar o proteger tu patrimonio con una estructura legal solida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section id="proceso" class="process">
+  <div class="wrap">
+    <div class="sec-header rv">
+      <span class="lbl">Como funciona</span>
+      <h2>Tu residencia en<br>4 pasos claros</h2>
+    </div>
+    <div class="process-steps">
+      <div class="p-step active rv d1">
+        <div class="p-step-num">01</div>
+        <h4>Consulta gratuita</h4>
+        <p>Evaluamos tu situacion personal, tus fuentes de ingreso y te explicamos si Paraguay es la opcion correcta. Sin costo, sin compromiso.</p>
+      </div>
+      <div class="p-step rv d2">
+        <div class="p-step-num">02</div>
+        <h4>Preparacion de documentos</h4>
+        <p>Te guiamos en cada documento que necesitas apostillar y traducir desde tu pais. Coordinamos todo de forma remota antes de que viajes.</p>
+      </div>
+      <div class="p-step rv d3">
+        <div class="p-step-num">03</div>
+        <h4>Tramitacion local</h4>
+        <p>Nuestro equipo en Asuncion gestiona cada tramite: migracion, biometria, RUC y cedula. Vos viajas una sola vez; nosotros nos encargamos del resto.</p>
+      </div>
+      <div class="p-step rv d4">
+        <div class="p-step-num">04</div>
+        <h4>Residencia operativa</h4>
+        <p>En aproximadamente 60 a 90 dias tenes tu cedula paraguaya, tu RUC activo y tu residencia fiscal completamente funcional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="servicios" class="services">
+  <div class="wrap">
+    <div class="services-grid">
+      <div>
+        <div class="rv">
+          <span class="lbl lbl-light">Servicios</span>
+          <h2 class="on-light" style="margin-bottom:16px;">Todo lo que necesitas,<br>en un solo lugar</h2>
+          <p style="font-size:16px;color:#5A6B7E;margin-bottom:40px;line-height:1.8;">Ademas de la residencia fiscal, ofrecemos una gama completa de servicios para inversores y extranjeros que quieren operar en Paraguay.</p>
+        </div>
+        <div class="srv-list">
+          <div class="srv-row rv d1">
+            <div class="srv-row-num">1.</div>
+            <div class="srv-row-body">
+              <h4>Residencia temporal y permanente</h4>
+              <p>Gestion completa del tramite migratorio ante la Direccion General de Migraciones.</p>
+            </div>
+          </div>
+          <div class="srv-row rv d2">
+            <div class="srv-row-num">2.</div>
+            <div class="srv-row-body">
+              <h4>Cedula paraguaya y RUC</h4>
+              <p>Identificacion oficial y numero de contribuyente para operar legalmente en Paraguay.</p>
+            </div>
+          </div>
+          <div class="srv-row rv d3">
+            <div class="srv-row-num">3.</div>
+            <div class="srv-row-body">
+              <h4>Apertura de sociedades</h4>
+              <p>Constitucion de SA, SRL y otras estructuras societarias para tu negocio en Paraguay.</p>
+            </div>
+          </div>
+          <div class="srv-row rv d4">
+            <div class="srv-row-num">4.</div>
+            <div class="srv-row-body">
+              <h4>Outsourcing contable y fiscal</h4>
+              <p>Gestion contable, declaraciones impositivas y mantenimiento de tu RUC activo.</p>
+            </div>
+          </div>
+          <div class="srv-row rv d5">
+            <div class="srv-row-num">5.</div>
+            <div class="srv-row-body">
+              <h4>Gestiones notariales y municipales</h4>
+              <p>Licencias, registros de marcas, apostillas y todo tramite ante organismos publicos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inc-card rv d2">
+        <span class="lbl">Paquete residencia</span>
+        <h3>Lo que incluye el servicio</h3>
+        <p class="inc-sub">Un acompanamiento integral de principio a fin, sin costos ocultos.</p>
+        <div class="inc-items">
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Asesoria inicial personalizada (sin costo)</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Checklist de documentos a preparar</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Coordinacion de apostillas y traducciones</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Gestion ante Direccion de Migraciones</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Coordinacion de turno biometrico</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Tramitacion del RUC en la SET</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Cedula de identidad paraguaya</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Orientacion para baja de residencia fiscal anterior</div>
+          <div class="inc-item"><div class="inc-check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#00CEB8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Asistencia post-residencia por 3 meses</div>
+        </div>
+        <div class="inc-price">
+          Tarifa gubernamental aprox. <strong>USD 400</strong>. Mantenimiento anual del RUC aprox. <strong>USD 600</strong>. Presupuesto personalizado en tu consulta gratuita.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COUNTRIES ══════════ -->
+<section class="countries">
+  <div class="wrap">
+    <span class="lbl rv" style="justify-content:center;">Alcance internacional</span>
+    <h2 class="rv d1" style="margin-bottom:14px;">Atendemos clientes de todo el mundo</h2>
+    <p class="countries-desc rv d2">Experiencia con extranjeros de multiples paises, cada uno con sus particularidades legales y documentales.</p>
+    <div class="flags-row rv d2">
+      <div class="flag-chip"><span>&#127466;&#127480;</span> Espana</div>
+      <div class="flag-chip"><span>&#127462;&#127479;</span> Argentina</div>
+      <div class="flag-chip"><span>&#127482;&#127486;</span> Uruguay</div>
+      <div class="flag-chip"><span>&#127474;&#127485;</span> Mexico</div>
+      <div class="flag-chip"><span>&#127470;&#127481;</span> Italia</div>
+      <div class="flag-chip"><span>&#127463;&#127476;</span> Bolivia</div>
+      <div class="flag-chip"><span>&#127465;&#127466;</span> Alemania</div>
+      <div class="flag-chip"><span>&#127464;&#127473;</span> Chile</div>
+      <div class="flag-chip"><span>+</span>&nbsp;Y mas paises</div>
+    </div>
+    <div class="rv d3">
+      <a href="#contacto" class="btn btn-teal">Consultar para mi pais de origen &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="nosotros" class="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual-card rv">
+        <div class="about-avatar">SK</div>
+        <div class="about-name">Susana Kobs</div>
+        <div class="about-role">CPA &bull; Fundadora</div>
+        <p class="about-bio">Contadora Publica egresada de la Universidad Americana de Paraguay, especializada en servicios para inversores y extranjeros desde 2017. Socia activa de CAMACOMUSA.</p>
+        <div class="about-mini-stats">
+          <div class="mini-stat">
+            <div class="mini-stat-n">8+</div>
+            <div class="mini-stat-l">Anos de exp.</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-n">2017</div>
+            <div class="mini-stat-l">Fundacion</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-n">100+</div>
+            <div class="mini-stat-l">Clientes</div>
+          </div>
+          <div class="mini-stat">
+            <div class="mini-stat-n">7+</div>
+            <div class="mini-stat-l">Paises</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text rv d2">
+        <span class="lbl lbl-light">Sobre nosotros</span>
+        <h2 class="on-light">Una consultora moderna, alejada de los estudios tradicionales</h2>
+        <p>Fundamos Consultora KOBS en 2017 con una vision clara: acompanar a inversores y profesionales extranjeros a establecerse en Paraguay de forma ordenada, legal y sin burocracia innecesaria.</p>
+        <p>En estos anos hemos acompanado a mas de 100 clientes de Espana, Argentina, Uruguay, Mexico, Italia, Bolivia, Alemania y otros paises. Cada expediente es diferente, y nuestro equipo local conoce cada ventanilla, cada requisito y cada cambio de normativa.</p>
+        <p>No somos un tramitador mas. Somos el puente entre tu decision de cambiar tu estructura fiscal y la realidad de tener tu cedula paraguaya en la mano.</p>
+        <div class="cred-list">
+          <div class="cred"><span class="cred-icon">&#127891;</span>Contadora Publica, Universidad Americana de Paraguay</div>
+          <div class="cred"><span class="cred-icon">&#127970;</span>Socia activa de CAMACOMUSA (Camara de Comercio USA-PY)</div>
+          <div class="cred"><span class="cred-icon">&#128205;</span>Equipo local en Asuncion, Paraguay</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="faq">
+  <div class="wrap-sm">
+    <div class="sec-header rv" style="text-align:center;">
+      <span class="lbl" style="justify-content:center;">Preguntas frecuentes</span>
+      <h2>Lo que mas nos preguntan</h2>
+    </div>
+    <div class="faq-items">
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false">
+          <span>Necesito vivir en Paraguay para mantener mi residencia fiscal?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">No. Paraguay no exige un minimo de dias de permanencia para mantener la residencia fiscal. Podras quedarte el tiempo que necesites o que quieras, sin obligaciones de estadias minimas. Es una de las principales ventajas del sistema paraguayo frente a otros paises de la region.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false">
+          <span>Cuanto tarda el proceso completo?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Desde que inician los tramites hasta tener la cedula paraguaya en mano, el proceso suele tomar entre 60 y 90 dias. La mayor parte de la preparacion de documentos se puede hacer desde tu pais. Solo necesitas viajar una vez a Asuncion para la biometria.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false">
+          <span>Es completamente legal pagar 0% de impuestos con residencia en Paraguay?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Si. Paraguay opera bajo un sistema tributario 100% territorial establecido en la ley: solo tributan los ingresos generados dentro del pais. Los ingresos obtenidos en el exterior (trabajo remoto, inversiones, dividendos) no estan alcanzados por el impuesto a la renta. Es perfectamente legal cuando el proceso se hace correctamente.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false">
+          <span>Que documentos necesito de mi pais de origen?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Los documentos base son: acta de nacimiento apostillada, certificado de antecedentes penales apostillado (vigencia maxima 6 meses) y pasaporte vigente. Dependiendo de tu nacionalidad puede haber documentos adicionales. En la consulta gratuita te damos el listado exacto personalizado.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false">
+          <span>Pierdo mi ciudadania o residencia actual al tramitar la paraguaya?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">No. Tramitar la residencia fiscal en Paraguay no implica renunciar a tu pasaporte, ciudadania o residencia en tu pais de origen. Son procesos independientes. Para que la residencia paraguaya sea efectiva tributariamente, es importante dar de baja correctamente la residencia fiscal anterior, un proceso que tambien te asesoramos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false">
+          <span>Necesito contratar servicios contables una vez que tenga el RUC?</span>
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-a">Para mantener el RUC activo en la SET se requiere una declaracion anual minima. El costo estimado es de aproximadamente USD 600 anuales. Nuestro estudio contable puede encargarse de eso, o podemos orientarte si prefieres otro proveedor local.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA BAND ══════════ -->
+<section class="cta-band">
+  <div class="wrap rv">
+    <span class="lbl" style="justify-content:center;">Empieza hoy</span>
+    <h2>Tu primera consulta<br>es gratuita</h2>
+    <p>Sin costo ni compromiso. Analizamos tu situacion y te decimos exactamente lo que necesitas hacer.</p>
+    <a href="https://wa.link/6mp12l" target="_blank" class="btn btn-orange btn-lg">Escribir por WhatsApp ahora &rarr;</a>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left rv">
+        <span class="lbl">Contacto</span>
+        <h2>Habla con nuestro<br>equipo</h2>
+        <p class="contact-desc">Escribinos por WhatsApp o completa el formulario. Nuestro equipo en Asuncion se pone en contacto para evaluar tu situacion y explicarte el proceso paso a paso.</p>
+        <div class="contact-meta">
+          <div class="contact-meta-row">
+            <div class="contact-meta-ico">&#128205;</div>
+            <div><strong>Ubicacion</strong>Asuncion, Paraguay</div>
+          </div>
+          <div class="contact-meta-row">
+            <div class="contact-meta-ico">&#128247;</div>
+            <div><strong>Instagram</strong>@residenciasycedulasparaguayas</div>
+          </div>
+          <div class="contact-meta-row">
+            <div class="contact-meta-ico">&#128101;</div>
+            <div><strong>LinkedIn</strong>Consultora KOBS</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card rv d2">
+        <h3>Solicitar consulta gratuita</h3>
+        <a href="https://wa.link/6mp12l" target="_blank" class="wa-direct">
+          <span class="wa-ico">&#128172;</span>
+          <div class="wa-words">
+            <strong>Escribir por WhatsApp ahora</strong>
+            <span>Respuesta en menos de 24 horas</span>
+          </div>
+        </a>
+        <div class="or-row">o completa el formulario</div>
+        <form id="cform">
+          <div class="form-row-2">
+            <div class="fg">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="fg">
+              <label for="pais">Pais de residencia</label>
+              <select id="pais">
+                <option value="">Seleccionar</option>
+                <option>Espana</option>
+                <option>Argentina</option>
+                <option>Uruguay</option>
+                <option>Mexico</option>
+                <option>Italia</option>
+                <option>Bolivia</option>
+                <option>Alemania</option>
+                <option>Chile</option>
+                <option>Colombia</option>
+                <option>Peru</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="tu@email.com" required>
+          </div>
+          <div class="fg">
+            <label for="wanum">WhatsApp (prefijo internacional)</label>
+            <input type="text" id="wanum" placeholder="+34 600 000 000">
+          </div>
+          <div class="fg">
+            <label for="consulta">Consulta</label>
+            <textarea id="consulta" placeholder="Contanos tu situacion: pais actual, fuente de ingresos, que queres resolver..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-orange btn-block btn-lg">Enviar consulta por WhatsApp &rarr;</button>
+          <p class="form-note">Tu informacion es confidencial y se usa unicamente para coordinar tu consulta.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-logo-row">
+          <div class="foot-mark">K</div>
+          <span class="foot-brand-name">Consultora KOBS</span>
+        </div>
+        <p>Consultora moderna especializada en servicios para inversores y extranjeros en Paraguay. Fundada en 2017 en Asuncion.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <ul>
+          <li>Residencias y cedulas</li>
+          <li>Apertura de sociedades</li>
+          <li>Outsourcing contable</li>
+          <li>Gestiones notariales</li>
+          <li>Licencias y registros</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>Asuncion, Paraguay</li>
+          <li><a href="https://wa.link/6mp12l" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/residenciasycedulasparaguayas" target="_blank">@residenciasycedulasparaguayas</a></li>
+          <li><a href="https://instagram.com/consultorakobs" target="_blank">@consultorakobs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p class="foot-copy">&copy; 2025 Consultora KOBS. Todos los derechos reservados.</p>
+      <div class="foot-social">
+        <a href="https://instagram.com/consultorakobs" target="_blank" title="Instagram">In</a>
+        <a href="https://linkedin.com/company/consultora-kobs" target="_blank" title="LinkedIn">Li</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── CUSTOM CURSOR ── */
+(function(){
+  const dot  = document.getElementById('curDot');
+  const ring = document.getElementById('curRing');
+  let mx=0, my=0, rx=0, ry=0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  document.addEventListener('mouseleave', () => { dot.style.opacity='0'; ring.style.opacity='0'; });
+  document.addEventListener('mouseenter', () => { dot.style.opacity='1'; ring.style.opacity='1'; });
+  function loop(){
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    dot.style.left  = mx + 'px';
+    dot.style.top   = my + 'px';
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+  document.querySelectorAll('a,button,[role="button"]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width  = '46px';
+      ring.style.height = '46px';
+      ring.style.borderColor = 'var(--teal)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width  = '30px';
+      ring.style.height = '30px';
+      ring.style.borderColor = 'var(--teal-mid)';
+    });
+  });
+})();
+
+/* ── NAV SCROLL ── */
+(function(){
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+})();
+
+/* ── SCROLL REVEAL ── */
+(function(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+})();
+
+/* ── COUNTER ANIMATION ── */
+(function(){
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const raw = el.dataset.count;
+      if (raw === undefined) return;
+      const target  = parseInt(raw, 10);
+      const prefix  = el.dataset.prefix || '';
+      const suffix  = el.dataset.suffix || '';
+      const dur     = 1800;
+      const start   = performance.now();
+      function tick(now){
+        const t    = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - t, 4);
+        const val  = Math.floor(ease * target);
+        el.textContent = prefix + val + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + target + suffix;
+      }
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => obs.observe(el));
+})();
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q-btn').setAttribute('aria-expanded','false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+/* ── FORM TO WHATSAPP ── */
+document.getElementById('cform').addEventListener('submit', function(e){
+  e.preventDefault();
+  const n = document.getElementById('nombre').value;
+  const p = document.getElementById('pais').value;
+  const em = document.getElementById('email').value;
+  const w = document.getElementById('wanum').value;
+  const c = document.getElementById('consulta').value;
+  let msg = 'Hola Susana, me contacto desde la web de Consultora KOBS.';
+  if (n)  msg += ' Mi nombre es ' + n + '.';
+  if (p)  msg += ' Resido en ' + p + '.';
+  if (em) msg += ' Mi email es ' + em + '.';
+  if (w)  msg += ' WhatsApp: ' + w + '.';
+  if (c)  msg += ' Consulta: ' + c;
+  window.open('https://wa.link/6mp12l', '_blank');
+});
+</script>
+</body>
+</html>
