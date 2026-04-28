@@ -206,9 +206,9 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 
 .h-h1{
   font-family:var(--sans);font-weight:800;
-  font-size:clamp(38px,5vw,64px);
-  line-height:1.0;letter-spacing:-.025em;
-  color:var(--dark);margin-bottom:14px;max-width:600px;
+  font-size:clamp(40px,5.8vw,74px);
+  line-height:1.03;letter-spacing:-.028em;
+  color:var(--dark);margin-bottom:28px;max-width:620px;
 }
 /* Palabra clave: subrayado teal animado */
 .h-mark{position:relative;display:inline}
@@ -220,44 +220,37 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 }
 .h-h1.on .h-mark::after{transform:scaleX(1)}
 
-.h-em{
-  font-family:var(--serif);font-style:italic;font-weight:300;
-  font-size:clamp(34px,4.5vw,58px);color:var(--teal);
-  display:block;line-height:1.05;letter-spacing:-.02em;
-  margin-bottom:28px;
-}
+/* h-em ya no se usa como titular — removido del hero */
+.h-em{ display:none; }
 
-/* Bullets pill — alta presencia visual */
+/* Bullets — pre-header compacto, badges pequeños */
 .h-bullets{
-  display:flex;flex-wrap:wrap;gap:10px;
-  margin-bottom:28px;
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-bottom:24px;
 }
 .h-bullet{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--sans);font-size:14px;font-weight:600;color:var(--dark);
-  background:var(--white);
-  border:1.5px solid var(--teal);
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--sans);font-size:12px;font-weight:600;color:var(--mid);
+  background:rgba(0,181,160,.06);
+  border:1px solid rgba(0,181,160,.28);
   border-radius:999px;
-  padding:10px 18px 10px 10px;
-  box-shadow:0 2px 8px rgba(0,181,160,.10);
+  padding:5px 12px 5px 5px;
 }
 .h-bullet-chk{
-  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  flex-shrink:0;width:18px;height:18px;border-radius:50%;
   background:var(--teal);
   display:flex;align-items:center;justify-content:center;
 }
-.h-bullet-chk svg{width:11px;height:11px}
+.h-bullet-chk svg{width:8px;height:8px}
 
-/* Body prominente */
-.h-body{
-  font-size:18px;font-weight:300;line-height:1.72;
-  color:var(--dark);max-width:500px;margin-bottom:10px;
-}
+/* h-body ya no se usa — el contenido sube al titular */
+.h-body{ display:none; }
 
-/* Subtitle intro CTA */
+/* Subtitle → introduccion al CTA */
 .h-sub{
-  font-family:var(--sans);font-weight:500;font-size:13px;
-  color:var(--muted);margin-bottom:28px;line-height:1.6;
+  font-size:17px;font-weight:400;
+  color:var(--mid);margin-bottom:32px;line-height:1.7;
+  max-width:480px;
 }
 .h-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
@@ -671,16 +664,18 @@ footer{background:#0D1117;border-top:1px solid rgba(255,255,255,.05);padding:44p
 
     <!-- Columna izquierda -->
     <div class="h-left">
+      <!-- Pre-header pequeno -->
       <p class="h-pre rv">Residencia fiscal en Paraguay</p>
-      <h1 class="h-h1 rv d1">
-        Ganas en el exterior.<br><span class="h-mark">Pagas cero impuestos.</span>
-      </h1>
-      <p class="h-em rv d2">100% legal. Sin complicaciones.</p>
 
-      <div class="h-bullets rv d2">
+      <!-- Badges compactos — pre-header visual -->
+      <div class="h-bullets rv">
         <div class="h-bullet">
           <div class="h-bullet-chk"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>Sin dias minimos de estadia</span>
+          <span>100% legal</span>
+        </div>
+        <div class="h-bullet">
+          <div class="h-bullet-chk"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>Sin dias minimos</span>
         </div>
         <div class="h-bullet">
           <div class="h-bullet-chk"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -688,19 +683,18 @@ footer{background:#0D1117;border-top:1px solid rgba(255,255,255,.05);padding:44p
         </div>
         <div class="h-bullet">
           <div class="h-bullet-chk"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>Un solo viaje necesario</span>
-        </div>
-        <div class="h-bullet">
-          <div class="h-bullet-chk"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span>Cedula en ~45 dias</span>
+          <span>Un solo viaje</span>
         </div>
       </div>
 
-      <p class="h-body rv d3">
-        Accede a uno de los sistemas fiscales mas ventajosos del mundo. En Paraguay, los ingresos generados en el exterior no tributan.
-      </p>
-      <p class="h-sub rv d3">Nuestro equipo local te guia en cada paso, sin burocracia.</p>
-      <div class="h-ctas rv d4">
+      <!-- HEADLINE PRINCIPAL — directo al beneficio, elimina objeciones -->
+      <h1 class="h-h1 rv d1">
+        En Paraguay, los ingresos que ganas afuera<br>pagan <span class="h-mark">0% de impuestos</span>.<br>No es un atajo. Es la ley.
+      </h1>
+
+      <!-- Subtitle: introduccion al CTA -->
+      <p class="h-sub rv d2">Nuestro equipo local te guia en cada paso del proceso, sin burocracia.</p>
+      <div class="h-ctas rv d3">
         <a href="https://wa.link/6mp12l" target="_blank" class="btn btn-orange btn-lg">Quiero mi consulta gratuita &rarr;</a>
         <a href="#proceso" class="btn btn-teal btn-lg">Ver el proceso</a>
       </div>
