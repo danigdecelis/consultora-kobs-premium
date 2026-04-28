@@ -121,7 +121,9 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 .btn-orange:hover{background:var(--orange-d);border-color:var(--orange-d);box-shadow:0 8px 24px rgba(244,122,31,.30)}
 
 .btn-teal{background:transparent;color:var(--teal);border-color:var(--teal)}
-.btn-teal:hover{background:var(--teal);color:#fff;box-shadow:0 8px 24px rgba(0,181,160,.25)}
+.btn-teal:hover{background:var(--teal);color:#fff;box-shadow:0 8px 24px rgba(0,181,160,.30)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.72);border-color:rgba(255,255,255,.22)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.45)}
 
 .btn-dark{background:var(--dark);color:#fff;border-color:var(--dark)}
 .btn-dark:hover{background:#1f2d3d;box-shadow:0 8px 24px rgba(0,0,0,.25)}
@@ -130,15 +132,15 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 .btn-white:hover{background:var(--off);box-shadow:0 8px 24px rgba(0,0,0,.15)}
 
 /* ══════════════════════════════
-   NAV
+   NAV — dark (premium)
 ══════════════════════════════ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:500;height:68px;
-  background:rgba(255,255,255,.94);backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
-  transition:box-shadow .3s;
+  background:rgba(10,22,40,.82);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,181,160,.12);
+  transition:background .3s,box-shadow .3s;
 }
-.nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.nav.scrolled{background:rgba(10,22,40,.96);box-shadow:0 4px 32px rgba(0,0,0,.30)}
 .nav-in{
   height:100%;max-width:1120px;margin:0 auto;padding:0 32px;
   display:flex;align-items:center;justify-content:space-between;
@@ -150,40 +152,45 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
   font-family:var(--sans);font-weight:800;font-size:14px;color:#fff;letter-spacing:-.02em;
 }
 .nav-words{display:flex;flex-direction:column;line-height:1.15}
-.nav-name{font-family:var(--sans);font-weight:700;font-size:13.5px;color:var(--dark)}
-.nav-sub{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.nav-name{font-family:var(--sans);font-weight:700;font-size:13.5px;color:rgba(255,255,255,.88)}
+.nav-sub{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.32)}
 .nav-links{display:flex;align-items:center;gap:22px}
-.nav-link{font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-link{font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:color .2s}
 .nav-link:hover{color:var(--teal)}
 
 /* ══════════════════════════════
-   HERO (fondo claro — colores KOBS)
+   HERO — dark / premium
 ══════════════════════════════ */
 .hero{
   position:relative;min-height:100dvh;
-  background:linear-gradient(150deg,var(--teal-lt) 0%,#ffffff 55%);
+  background:#0A1628;
   display:flex;align-items:center;
   overflow:hidden;padding-top:68px;
 }
 
-/* Mesh blobs sobre fondo claro */
+/* Mesh blobs — más intensos sobre fondo oscuro */
 .h-mesh{position:absolute;inset:0;pointer-events:none}
-.h-b{position:absolute;border-radius:50%;filter:blur(90px)}
-.h-b1{width:600px;height:600px;top:-10%;left:-8%;
-  background:radial-gradient(circle,rgba(0,181,160,.12) 0%,transparent 60%);
+.h-b{position:absolute;border-radius:50%;filter:blur(80px)}
+.h-b1{width:700px;height:700px;top:-15%;left:-10%;
+  background:radial-gradient(circle,rgba(0,181,160,.25) 0%,transparent 60%);
   animation:hb1 12s ease-in-out infinite}
-.h-b2{width:440px;height:440px;bottom:5%;right:-4%;
-  background:radial-gradient(circle,rgba(244,122,31,.09) 0%,transparent 60%);
+.h-b2{width:500px;height:500px;bottom:0%;right:-6%;
+  background:radial-gradient(circle,rgba(244,122,31,.16) 0%,transparent 60%);
   animation:hb2 15s ease-in-out infinite}
-@keyframes hb1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px) scale(1.06)}}
-@keyframes hb2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px) scale(.93)}}
+/* Tercer blob: azul profundo, centro */
+.h-b3{width:380px;height:380px;top:30%;left:35%;
+  background:radial-gradient(circle,rgba(0,100,200,.10) 0%,transparent 60%);
+  animation:hb3 18s ease-in-out infinite}
+@keyframes hb1{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,-40px) scale(1.08)}}
+@keyframes hb2{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px) scale(.92)}}
+@keyframes hb3{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,20px) scale(1.05)}}
 
-/* "0%" watermark — muy sutil sobre fondo claro */
+/* "0%" watermark — mas visible sobre fondo oscuro */
 .h-zero{
   position:absolute;pointer-events:none;user-select:none;
   font-family:var(--serif);font-style:italic;font-weight:400;
   font-size:clamp(180px,28vw,440px);line-height:.9;letter-spacing:-.04em;
-  color:transparent;-webkit-text-stroke:1px rgba(0,181,160,.07);
+  color:transparent;-webkit-text-stroke:1px rgba(0,181,160,.10);
   right:-2%;top:50%;transform:translateY(-50%);z-index:0;
 }
 
@@ -199,16 +206,16 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 .h-pre{
   font-family:var(--sans);font-weight:600;
   font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:20px;
+  color:rgba(255,255,255,.38);margin-bottom:20px;
   display:flex;align-items:center;gap:10px;
 }
-.h-pre::before{content:'';width:18px;height:1px;background:var(--muted);flex-shrink:0}
+.h-pre::before{content:'';width:18px;height:1px;background:rgba(255,255,255,.20);flex-shrink:0}
 
 .h-h1{
   font-family:var(--sans);font-weight:800;
   font-size:clamp(40px,5.8vw,74px);
   line-height:1.03;letter-spacing:-.028em;
-  color:var(--dark);margin-bottom:28px;max-width:620px;
+  color:#FFFFFF;margin-bottom:28px;max-width:620px;
 }
 /* Palabra clave: subrayado teal animado */
 .h-mark{position:relative;display:inline}
@@ -223,16 +230,16 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 /* h-em ya no se usa como titular — removido del hero */
 .h-em{ display:none; }
 
-/* Bullets — pre-header compacto, badges pequeños */
+/* Bullets — pre-header compacto sobre fondo dark */
 .h-bullets{
   display:flex;flex-wrap:wrap;gap:8px;
   margin-bottom:24px;
 }
 .h-bullet{
   display:inline-flex;align-items:center;gap:7px;
-  font-family:var(--sans);font-size:12px;font-weight:600;color:var(--mid);
-  background:rgba(0,181,160,.06);
-  border:1px solid rgba(0,181,160,.28);
+  font-family:var(--sans);font-size:12px;font-weight:600;color:rgba(255,255,255,.72);
+  background:rgba(0,181,160,.12);
+  border:1px solid rgba(0,181,160,.35);
   border-radius:999px;
   padding:5px 12px 5px 5px;
 }
@@ -249,16 +256,19 @@ h4{font-family:var(--sans);font-weight:700;font-size:15px;line-height:1.3;color:
 /* Subtitle → introduccion al CTA */
 .h-sub{
   font-size:17px;font-weight:400;
-  color:var(--mid);margin-bottom:32px;line-height:1.7;
+  color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.7;
   max-width:480px;
 }
 .h-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
-/* Columna derecha: card oscura de alto contraste */
+/* Columna derecha: card glass sobre hero dark */
 .h-card{
-  background:var(--dark);border-radius:14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,181,160,.22);
+  border-radius:14px;
   padding:38px 32px;
-  box-shadow:0 12px 60px rgba(17,24,39,.18);
+  backdrop-filter:blur(16px);
+  box-shadow:0 8px 48px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
 }
 .h-card .lbl-inv{margin-bottom:16px}
 .h-card h3.inv{font-size:18px;margin-bottom:20px}
@@ -658,6 +668,7 @@ footer{background:#0D1117;border-top:1px solid rgba(255,255,255,.05);padding:44p
   <div class="h-mesh">
     <div class="h-b h-b1"></div>
     <div class="h-b h-b2"></div>
+    <div class="h-b h-b3"></div>
   </div>
   <div class="h-zero" aria-hidden="true">0%</div>
   <div class="h-in">
@@ -696,7 +707,7 @@ footer{background:#0D1117;border-top:1px solid rgba(255,255,255,.05);padding:44p
       <p class="h-sub rv d2">Nuestro equipo local te guia en cada paso del proceso, sin burocracia.</p>
       <div class="h-ctas rv d3">
         <a href="https://wa.link/6mp12l" target="_blank" class="btn btn-orange btn-lg">Quiero mi consulta gratuita &rarr;</a>
-        <a href="#proceso" class="btn btn-teal btn-lg">Ver el proceso</a>
+        <a href="#proceso" class="btn btn-ghost btn-lg">Ver el proceso</a>
       </div>
     </div>
 
