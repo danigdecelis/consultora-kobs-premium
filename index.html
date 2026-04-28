@@ -236,33 +236,63 @@ h4 { font-family: var(--sans); font-weight: 700; font-size: 15px; line-height: 1
 .h-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:blink 2s ease-in-out infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
 
+/* Pre-header */
+.h-pre {
+  font-family:var(--sans); font-weight:600;
+  font-size:10.5px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--muted-c); margin-bottom:22px;
+  display:flex; align-items:center; gap:12px;
+}
+.h-pre::before { content:''; width:20px; height:1px; background:var(--muted-c); flex-shrink:0; }
+
+/* H1: bigger, tighter */
 .h-h1 {
   font-family:var(--sans); font-weight:800;
-  font-size: clamp(44px, 6.5vw, 84px);
-  line-height:.97; letter-spacing:-.035em;
-  color:var(--snow); max-width:700px; margin-bottom:26px;
+  font-size: clamp(50px, 8vw, 100px);
+  line-height:.93; letter-spacing:-.04em;
+  color:var(--snow); max-width:820px; margin-bottom:28px;
 }
-.h-h1 em {
+/* Animated teal underline on key phrase */
+.h-mark {
+  position:relative; display:inline; white-space:nowrap;
+}
+.h-mark::after {
+  content:''; position:absolute; left:0; bottom:-7px; right:0;
+  height:3px; background:var(--teal);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .95s cubic-bezier(.22,1,.36,1) .65s;
+}
+.h-h1.on .h-mark::after { transform:scaleX(1); }
+
+/* "100% legal." in serif italic teal */
+.h-legal {
   font-family:var(--serif); font-style:italic; font-weight:300;
-  font-size:1.06em; letter-spacing:-.02em; color:var(--teal);
-  display:block;
+  font-size:.90em; color:var(--teal); display:block; letter-spacing:-.02em;
+  margin-top:6px;
 }
 
-.h-desc {
-  font-size:17px; line-height:1.80; color:var(--body-c);
-  max-width:500px; margin-bottom:40px;
+/* Objection-eliminating chips */
+.h-chips { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:36px; }
+.h-chip {
+  display:flex; align-items:center; gap:7px;
+  font-family:var(--sans); font-weight:600; font-size:11px; letter-spacing:.05em;
+  color:var(--muted-c); padding:6px 14px;
+  border:1px solid var(--line-s); border-radius:100px;
+  background:rgba(0,181,160,.05);
 }
-.h-ctas { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px; }
-.h-trust { display:flex; align-items:center; gap:0; flex-wrap:wrap; }
-.h-trust-item {
-  font-family:var(--sans); font-weight:600;
-  font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--muted-c); padding:0 20px;
-  border-right:1px solid var(--line-s);
+.h-chip::before { content:'✓'; color:var(--teal); font-size:10px; font-weight:700; }
+
+/* Prominent body text */
+.h-body {
+  font-size:20px; font-weight:300; line-height:1.68;
+  color:rgba(232,242,248,.92); max-width:530px; margin-bottom:14px;
 }
-.h-trust-item:first-child { padding-left:0; }
-.h-trust-item:last-child  { border-right:none; }
-.h-trust-item b { color:var(--teal); }
+/* CTA intro subtitle */
+.h-sub {
+  font-family:var(--sans); font-weight:500; font-size:13px;
+  color:var(--muted-c); max-width:400px; margin-bottom:34px; line-height:1.65;
+}
+.h-ctas { display:flex; gap:14px; flex-wrap:wrap; }
 
 /* ═══════════════════════════
    MARQUEE
@@ -687,10 +717,12 @@ footer {
 @media (max-width:768px) {
   .why-grid  { grid-template-columns:1fr; }
   .proc-grid { grid-template-columns:1fr; }
-  .h-h1      { font-size:clamp(38px,10vw,60px); }
+  .h-h1      { font-size:clamp(40px,11vw,66px); }
   .h-ctas    { flex-direction:column; }
   .h-ctas .btn { justify-content:center; }
   .h-zero    { font-size:52vw; right:-6%; }
+  .h-body    { font-size:17px; }
+  .h-chips   { gap:8px; }
   .h-trust   { gap:0; }
   .h-trust-item { padding:0 12px; font-size:9.5px; }
   .form-2col { grid-template-columns:1fr; }
@@ -745,26 +777,26 @@ footer {
   <div class="h-zero" aria-hidden="true">0%</div>
 
   <div class="h-body">
-    <div class="h-badge rv">
-      <span class="h-badge-dot"></span>
-      Asuncion, Paraguay &nbsp;&mdash;&nbsp; Servicio activo
-    </div>
+    <p class="h-pre rv">Residencia fiscal en Paraguay</p>
     <h1 class="h-h1 rv d1">
-      Residencia fiscal
-      <em>en Paraguay.</em>
+      Lo que ganas afuera<br>
+      <span class="h-mark">no tributa.</span>
+      <em class="h-legal">100% legal.</em>
     </h1>
-    <p class="h-desc rv d2">
-      Accede a uno de los sistemas fiscales mas ventajosos del mundo. En Paraguay, los ingresos generados en el exterior no tributan. Nuestro equipo local te guia en cada paso, sin burocracia.
+    <div class="h-chips rv d2">
+      <span class="h-chip">Sin dias minimos de estadia</span>
+      <span class="h-chip">Mantienes tu ciudadania</span>
+      <span class="h-chip">Un solo viaje necesario</span>
+    </div>
+    <p class="h-body rv d3">
+      Accede a uno de los sistemas fiscales mas ventajosos del mundo. En Paraguay, los ingresos generados en el exterior no tributan.
     </p>
-    <div class="h-ctas rv d3">
+    <p class="h-sub rv d3">
+      Nuestro equipo local te guia en cada paso, sin burocracia.
+    </p>
+    <div class="h-ctas rv d4">
       <a href="https://wa.link/6mp12l" target="_blank" class="btn btn-orange btn-lg">Quiero mi consulta gratuita &rarr;</a>
       <a href="#proceso" class="btn btn-teal btn-lg">Ver el proceso</a>
-    </div>
-    <div class="h-trust rv d4">
-      <span class="h-trust-item"><b>8</b>&nbsp;anos de experiencia</span>
-      <span class="h-trust-item">Equipo local en Asuncion</span>
-      <span class="h-trust-item">+7 nacionalidades</span>
-      <span class="h-trust-item">100% legal</span>
     </div>
   </div>
 </section>
